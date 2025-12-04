@@ -1,23 +1,540 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "전국 용달이사 가격비교 센터",
+      "description": "2026년 용달이사 비용 전문 분석 및 실시간 견적 제공. 원룸, 투룸, 사무실 이사 전문.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "전국 이사 전문 네트워크",
+        "addressLocality": "서울",
+        "addressRegion": "대한민국",
+        "postalCode": "00000",
+        "addressCountry": "KR"
+      },
+      "telephone": "1666-XXXX", 
+      "url": "https://www.example.com/yongdal-cost-guide",
+      "openingHours": "Mo-Su 08:00-22:00",
+      "priceRange": "₩200,000 - ₩500,000",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "주요 용달이사 서비스",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"원룸 용달이사 (기사도움)"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"투룸 반포장이사"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"소형 포장이사"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"학생 이사 / 자취 이사"}}
+        ]
+      }
+    }
+    </script>
+
+    <link rel="canonical" href="https://www.example.com/yongdal-cost-guide">
+
+    <style>
+        :root {
+            --primary-color: #3b82f6; /* 부드러운 파랑 */
+            --secondary-color: #60a5fa; /* 더 부드러운 파랑 */
+            --background-light: #f3f4f6; /* 밝은 배경 */
+            --text-dark: #1f2937; /* 어두운 텍스트 */
+            --text-medium: #4b5563; /* 중간 텍스트 */
+            --accent-color: #f59e0b; /* 강조색 (노랑) */
+            --border-color: #e5e7eb;
+        }
+
+        body { 
+            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-dark); 
+            line-height: 1.7; 
+            background-color: #ffffff; 
+        }
+        
+        header, section, footer { 
+            max-width: 960px; 
+            margin: 0 auto; 
+            padding: 20px 25px; 
+        }
+
+        h1, h2, h3 { 
+            color: var(--text-dark); 
+            font-weight: 700; 
+            margin-top: 1.5em; 
+            margin-bottom: 0.5em;
+        }
+        
+        h1 { 
+            font-size: 2.2em; 
+            text-align: center; 
+            padding: 10px 0; 
+            background-color: var(--background-light); 
+            border-radius: 8px; 
+        }
+
+        h2 { 
+            font-size: 1.8em; 
+            border-bottom: 3px solid var(--primary-color); 
+            padding-bottom: 5px; 
+            margin-top: 40px; 
+        }
+        
+        h3 { 
+            font-size: 1.4em; 
+            color: var(--primary-color); 
+        }
+
+        p { 
+            margin-bottom: 15px; 
+            color: var(--text-medium); 
+        }
+
+        .cta-btn { 
+            display: block; 
+            width: 100%; 
+            text-align: center;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 18px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background .3s;
+            margin: 25px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cta-btn:hover { background: var(--secondary-color); }
+
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px; 
+            margin-top: 20px;
+        }
+        nav a { 
+            text-decoration: none; 
+            color: var(--primary-color); 
+            font-weight: 600; 
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: background .3s;
+        }
+        nav a:hover { 
+            background-color: var(--background-light); 
+        }
+
+        .content-box { 
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .cost-table, .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        .cost-table th, .cost-table td, .keyword-table th, .keyword-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        .cost-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+        .cost-table tr:nth-child(even) {
+            background-color: var(--background-light);
+        }
+        .cost-table td:nth-child(2) {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: right;
+        }
+        
+        .keyword-box { 
+            background-color: #eff6ff; 
+            padding: 15px; 
+            border-radius: 6px; 
+            margin-top: 15px; 
+            border-left: 5px solid var(--primary-color);
+        }
+        .keyword-box ul { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
+        .keyword-box li { 
+            background: #ffffff; 
+            padding: 5px 10px; 
+            border-radius: 4px; 
+            border: 1px solid var(--secondary-color); 
+            font-size: 0.9em; 
+            color: var(--text-dark); 
+        }
+
+        .info-section { 
+            margin-top: 30px; 
+            padding-top: 15px; 
+            border-top: 1px dashed var(--border-color); 
+        }
+
+        .form-group { 
+            margin-bottom: 20px; 
+        }
+        .form-group label { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: 5px; 
+            color: var(--primary-color); 
+        }
+        .form-group input[type="text"], 
+        .form-group input[type="tel"], 
+        .form-group input[type="date"], 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .form-group textarea { resize: vertical; }
+
+        .form-title { 
+            background-color: var(--primary-color); 
+            color: white; 
+            padding: 10px; 
+            border-radius: 4px 4px 0 0; 
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 0;
+        }
+
+        .graph-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: var(--background-light);
+            border: 2px dashed var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-medium);
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .external-link-list {
+            list-style: decimal inside;
+            padding-left: 0;
+        }
+        .external-link-list li {
+            margin-bottom: 8px;
+        }
+        .external-link-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .external-link-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .summary-note {
+            background-color: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #d97706;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2026년 최신 용달이사 비용 완벽 분석 및 무료 견적 가이드</h1>
+        <p>전국 **용달이사비용** 전문 센터. **원룸 용달이사**, **투룸 반포장이사** 최저가 견적 비교. 정확한 **이사비용 절약 팁** 제공.</p>
+        <nav>
+            <ul>
+                <li><a href="#cost-analysis">비용 분석</a></li>
+                <li><a href="#service-types">서비스 유형</a></li>
+                <li><a href="#keywords">지역/연관 키워드</a></li>
+                <li><a href="#info-detail">전문 정보</a></li>
+                <li><a href="#contact">무료 견적/상담</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <section id="cost-analysis" class="content-box">
+        <h2>✅ 2026년 용달이사 유형별 예상 비용 비교</h2>
+        <p class="summary-note">용달이사 비용은 **이동 거리, 짐 양(차량 톤수), 작업 인원, 이사 날짜(손 없는 날), 엘리베이터 유무**에 따라 크게 변동됩니다. 아래 표는 표준적인 조건(평일, 1톤, 동일 시/도 내)을 가정한 예상 가격입니다.</p>
+        
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th>서비스 유형</th>
+                    <th>2026년 예상 가격대 (원)</th>
+                    <th>주요 특징 및 인원 구성</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**일반 용달 이사**</td>
+                    <td>100,000 ~ 200,000</td>
+                    <td>운송만 제공. 고객 직접 포장/운반. 1톤 기준.</td>
+                </tr>
+                <tr>
+                    <td>**원룸 기사 도움 이사**</td>
+                    <td>180,000 ~ 300,000</td>
+                    <td>운송 + 기사 1명 짐 상하차 보조. 고객 포장/정리.</td>
+                </tr>
+                <tr>
+                    <td>**원룸 반포장 이사**</td>
+                    <td>250,000 ~ 400,000</td>
+                    <td>업체 포장/운송. 도착지 정리 고객 직접. (1톤/1.5톤 기준)</td>
+                </tr>
+                <tr>
+                    <td>**투룸 반포장 이사**</td>
+                    <td>350,000 ~ 550,000</td>
+                    <td>1.5톤~2.5톤 규모. 인원 2명. 효율적인 포장/운송.</td>
+                </tr>
+                <tr>
+                    <td>**소형 포장이사 (투룸 이상)**</td>
+                    <td>500,000 ~ 800,000</td>
+                    <td>2.5톤 이상. 포장부터 정리까지 모두 포함.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>용달이사비용 절약 핵심 팁:</strong> 짐을 최소화하고, 직접 포장하는 '일반 이사'나 '기사 도움 이사'를 선택하며, 이사 비수기(1월~2월)의 평일을 공략하는 것이 가장 효과적입니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="service-types">
+        <h2>🚚 용달이사 서비스 유형별 상세 가이드</h2>
+        
+        <div class="content-box">
+            <h3>1. 원룸 용달이사 비용 (기사 도움 이사)</h3>
+            <p>원룸 이사 시 가장 선호되는 형태로, **짐이 적은 1인 가구**에게 적합합니다. 고객이 직접 모든 짐을 박스에 포장하고, 이사 당일 용달 기사가 운송 및 상하차 시점의 큰 짐 운반을 보조합니다. **2026년 기준**, 계절 및 주말 여부에 따라 **18만원에서 30만원 사이**의 가격대를 형성합니다. 사다리차 사용 시 추가 비용이 발생하며, 이는 보통 7만원에서 15만원 사이로 책정됩니다.</p>
+        </div>
+
+        <div class="content-box">
+            <h3>2. 투룸 용달이사 비용 (반포장 이사)</h3>
+            <p>투룸은 짐의 양이 원룸보다 많아 용달 차량 1.5톤 또는 2.5톤을 주로 사용합니다. **반포장이사**는 업체에서 큰 짐(가구, 가전)과 잔짐 포장을 담당하고, 고객이 도착지에서 정리만 하는 방식입니다. 이는 포장이사보다는 저렴하고 일반 이사보다는 편리하여 가성비가 높습니다. **2026년 예상 비용**은 **35만원부터 55만원**까지 형성되며, 이삿짐센터의 전문 인력(주로 2인) 투입 여부가 가격 결정에 중요합니다. 주방 식기류 등의 섬세한 포장 서비스가 필요한 경우 비용이 상승할 수 있습니다.</p>
+        </div>
+        
+        <div class="content-box">
+            <h3>3. 용달차량 톤수별 운임표 및 추가 비용</h3>
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>차량 톤수</th>
+                        <th>주요 사용 용도</th>
+                        <th>기본 운임 (동일 시/군)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**1톤 용달**</td>
+                        <td>원룸 이사, 소량 짐 운반</td>
+                        <td>10만 ~ 15만 (운송만)</td>
+                    </tr>
+                    <tr>
+                        <td>**1.5톤 용달**</td>
+                        <td>짐 많은 원룸, 작은 투룸</td>
+                        <td>15만 ~ 20만 (운송만)</td>
+                    </tr>
+                    <tr>
+                        <td>**2.5톤 용달**</td>
+                        <td>일반적인 투룸, 소형 사무실 이사</td>
+                        <td>20만 ~ 30만 (운송만)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>추가 비용 항목:</strong> 사다리차 이용료 (층수별), 에어컨 탈부착, 벽걸이 TV 설치, 돌침대 등 특수 가구 운반, 이사일 겹치는 '손 없는 날' 프리미엄, 주말 할증, 도착지 주차 공간 협소로 인한 운반 거리 증가 등은 견적 산정 시 반드시 고려해야 합니다. 특히 **폐기물 처리 비용**은 이사 비용에 포함되지 않으므로 사전에 지자체에 문의해야 합니다.</p>
+        </div>
+        
+        <a href="#contact" class="cta-btn">실시간 용달이사 비용 무료 견적 신청</a>
+    </section>
+
+    <hr>
+
+    <section id="info-detail" class="info-section">
+        <h2>📊 용달이사 비용 변동 요인 심층 분석 (2026년 동향 반영)</h2>
+        
+        <div class="content-box">
+            <h3>용달이사 비용 결정 요인 상세 분석</h3>
+            <p>용달이사 비용은 단순한 운송비가 아닌, **종합적인 물류 서비스**의 대가입니다. 2026년 이사 시장의 주요 비용 변동 요인은 인건비 상승, 유가 변동, 그리고 이사 서비스의 전문화 경향입니다. 특히 **인건비**는 총 비용의 50% 이상을 차지하며, 이사 인력의 숙련도와 투입 인원수에 직접적인 영향을 받습니다. 주말 및 공휴일, 그리고 음력 9, 10, 19, 20, 29, 30일인 '손 없는 날'에는 기본 견적에서 **10%에서 최대 30%**까지 할증이 붙습니다. 장거리 이사(시/도 간)의 경우, **거리당 운임**이 추가되므로 왕복 운임을 고려한 견적을 산출해야 합니다. 또한, 짐량 외에 포장재(박스, 에어캡, 매트리스 커버 등) 비용, 청소 서비스 여부도 최종 비용을 좌우합니다.</p>
+            
+            <p><strong>지역별 가격 편차:</strong> 수도권(서울, 인천, 경기)은 공급업체가 많아 가격 경쟁이 치열하지만, 인건비가 비싸 기본 비용이 높게 책정되는 경향이 있습니다. 반면, 지방 소도시나 도서 산간 지역은 운송 인프라 부족과 왕복 운임 부담으로 인해 상대적으로 높은 가격을 형성할 수 있습니다. 예를 들어, **서울 강남구**의 원룸 용달이사 비용이 **부산 해운대구**보다 기본 견적이 높을 수 있으나, **제주도**로의 이사는 해상 운임까지 추가되어 훨씬 고가입니다. 이는 물류 접근성과 인건비 구조의 차이에서 비롯됩니다.</p>
+            
+            <h3>이사 비용 절감을 위한 전략적 접근</h3>
+            <p>가장 효율적인 비용 절감 전략은 **불필요한 짐을 정리**하는 것입니다. 짐의 부피가 줄면 더 작은 용달차(1톤 대신 0.5톤, 1.5톤 대신 1톤 등)를 사용하거나, 필요한 작업 인원 수를 줄일 수 있습니다. 이사 **두 달 전부터 불필요한 물품을 중고 거래**하거나 기부하면, 이사 비용 절감은 물론이고 새집에서의 정리도 수월해집니다. 이사 업체 선정 시에는 최소 **3곳 이상의 전문 업체로부터 방문 견적**을 받는 것이 필수적입니다. 전화 견적은 오차가 크므로 반드시 **현장 방문 견적**을 통해 정확한 짐의 양과 작업 환경(계단 작업, 주차 가능 여부)을 파악하게 해야 합니다. 계약 시에는 반드시 **피해보상 이행 보증 보험 가입 여부**를 확인하여 만일의 사태에 대비해야 합니다.</p>
+            
+            <p><strong>용달이사 vs. 포장이사 선택 기준:</strong> 짐이 1톤 이하이고, 이사 후 정리정돈에 부담이 없는 1인 가구는 용달이사가 경제적입니다. 그러나 짐이 1.5톤 이상이거나, 직장인처럼 이사 당일 시간이 없는 경우, 혹은 귀중품이 많아 전문적인 포장이 필요한 경우에는 비용이 더 들더라도 포장이사나 반포장이사를 선택하는 것이 시간과 노동력을 절약하는 합리적인 선택입니다.</p>
+            
+            <div class="graph-placeholder">
+                [용달이사 비용 구성 요소 비율 그래프 (2026년 예상) - 인건비, 운송비, 부대비용]
+            </div>
+
+            <p>용달이사 관련 전문 정보 텍스트... [이하 9,000자 이상의 정보성 텍스트가 연속됩니다. (예시: 이사 과정별 주의사항, 계약 시 필수 확인 사항, 특수 짐 운반 규정, 포장 노하우, 이사 후 잔금 처리 및 세금 공제 정보, 용달차량 적재 중량 기준 등 SEO 전문성을 높이는 상세 정보가 추가됩니다.)]</p>
+
+            <p>... (중략) ...</p>
+            
+            <p><strong>2026년 이사 트렌드:</strong> 미니멀 라이프 확산으로 인해 소규모 이사, 즉 원룸 용달이사 및 반포장이사에 대한 수요가 증가하고 있습니다. 이에 따라 용달이사 업체들은 짐 정리 컨설팅이나 간단한 청소 서비스를 결합한 패키지 상품을 출시하며 경쟁력을 높이고 있습니다. 특히 디지털 가전(대형 모니터, 고급 오디오 장비 등)의 안전한 포장 및 운반을 위한 **특수 포장 서비스**의 수요가 증가하는 추세입니다. 비용 견적 시 이러한 전문 서비스 추가 여부를 반드시 확인해야 합니다. 안전한 이사를 위해 정부에서는 등록된 이사업체 이용을 권장하고 있으며, 이사 서비스 품질 향상을 위한 표준 약관을 제시하고 있습니다.</p>
+            
+            <p>... (중략) ...</p>
+            
+            <p>결론적으로, **용달이사 비용**은 소비자가 어떤 서비스를 어디서, 언제 이용하느냐에 따라 천차만별입니다. 본 가이드에서 제공하는 정보를 바탕으로 신중하게 업체를 선택하고, 사전에 철저히 짐을 정리하여 2026년에도 성공적인 이사를 하시기 바랍니다.</p>
+        </div>
+    </section>
+    
+    <hr>
+    
+    <section id="keywords">
+        <h2>📍 용달이사 관련 전국 지역 키워드 및 연관 검색어</h2>
+        <p>네이버 검색 유입을 극대화하기 위해 '용달이사비용'과 연관된 전국 주요 지역명과 사용자들이 많이 찾는 검색어를 문맥에 맞게 정리했습니다. 이사 수요가 높은 지역 위주로 목록화했습니다.</p>
+        
+        <div class="keyword-box">
+            <h3>주요 지역별 용달이사 키워드 (50개 이상)</h3>
+            <ul>
+                <li>**서울 용달이사비용:** 강남, 서초, 송파, 강동, 강서, 영등포, 마포, 서대문, 종로, 동대문, 성동, 노원, 도봉, 관악, 동작, 구로, 금천, 은평, 중랑, 강북</li>
+                <li>**경기 용달이사비용:** 수원, 용인, 성남, 고양, 화성, 남양주, 안산, 안양, 평택, 시흥, 김포, 광주, 파주, 의정부, 양주, 하남, 오산, 이천, 안성, 과천</li>
+                <li>**광역시 용달이사비용:** 부산 (해운대, 서면), 인천 (송도, 부평), 대구 (수성구, 달서구), 광주 (서구, 북구), 대전 (유성구, 서구), 울산 (남구, 중구), 세종 (나성동, 도담동)</li>
+                <li>**기타 지방:** 천안, 아산, 청주, 전주, 익산, 군산, 목포, 여수, 순천, 포항, 경주, 구미, 창원, 진주, 제주, 강릉, 속초</li>
+            </ul>
+        </div>
+        
+        <div class="keyword-box">
+            <h3>자동완성 및 연관 검색어</h3>
+            <p>사용자들이 '용달이사비용' 검색 시 '함께 많이 찾는' 검색어들입니다. 이사 서비스의 다양한 측면을 포괄합니다.</p>
+            <ul>
+                <li>용달 반포장 이사 가격</li>
+                <li>원룸 용달 이사 후기</li>
+                <li>학생 이사 비용</li>
+                <li>1톤 트럭 이사 비용</li>
+                <li>용달 이사 짐 싸는 법</li>
+                <li>소형 이사 전문 업체</li>
+                <li>용달 기사 도움 이사</li>
+                <li>이사짐센터 가격 비교</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="references">
+        <h2>🔗 공신력 있는 용달/이사 관련 외부 정보</h2>
+        <p>안전하고 투명한 이사 서비스 이용을 위해 공인된 기관 및 신뢰할 수 있는 웹사이트의 정보를 참고하십시오.</p>
+        <ul class="external-link-list">
+            <li><a href="https://www.law.go.kr/" target="_blank">1. 국가법령정보센터 (이사화물 표준약관 관련 법령)</a></li>
+            <li><a href="https://www.kostat.go.kr/" target="_blank">2. 통계청 (이사 비용 및 가계 지출 관련 통계)</a></li>
+            <li><a href="https://www.consumer.go.kr/" target="_blank">3. 한국소비자원 (이사 서비스 피해 구제 사례 및 주의사항)</a></li>
+            <li><a href="https://namu.wiki/w/이사" target="_blank">4. 나무위키 (이사 관련 일반 정보 및 상식)</a></li>
+            <li><a href="https://www.naver.com/" target="_blank">5. 네이버 지식백과 (운송 및 물류 관련 정의)</a></li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="contact">
+        <h2>📞 용달이사 실시간 무료 견적 및 상담 신청</h2>
+        <p class="form-title">정확하고 투명한 2026년 용달이사 비용을 지금 바로 확인하세요.</p>
+        
+        <form action="/submit-yongdal-quote" method="post" class="content-box">
+            
+            <div class="form-group">
+                <label for="name">성함</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">연락처 (자동 연결)</label>
+                <input type="tel" id="phone" name="phone" placeholder="010-XXXX-XXXX" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="move-date">이사 예정일</label>
+                <input type="date" id="move-date" name="move-date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="move-type">희망 이사 유형 선택</label>
+                <select id="move-type" name="move-type" required>
+                    <option value="">-- 이사 유형을 선택하세요 --</option>
+                    <option value="원룸 기사 도움 이사">원룸 기사 도움 이사 (가장 저렴)</option>
+                    <option value="원룸 반포장이사">원룸 반포장이사</option>
+                    <option value="투룸 반포장이사">투룸 반포장이사</option>
+                    <option value="소형 포장이사">소형 포장이사 (투룸/소형 아파트)</option>
+                    <option value="일반 운송 (짐 운반만)">일반 운송 (짐 운반만)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="start-addr">출발지 주소 (시/군/구까지)</label>
+                <input type="text" id="start-addr" name="start-addr" placeholder="예: 서울시 강남구" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end-addr">도착지 주소 (시/군/구까지)</label>
+                <input type="text" id="end-addr" name="end-addr" placeholder="예: 경기도 수원시" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="elevator">엘리베이터 유무 (출발지/도착지)</label>
+                <select id="elevator" name="elevator" required>
+                    <option value="">-- 선택 --</option>
+                    <option value="둘다 있음">둘 다 있음</option>
+                    <option value="출발지만 있음">출발지만 있음</option>
+                    <option value="도착지만 있음">도착지만 있음</option>
+                    <option value="둘 다 없음">둘 다 없음 (계단 작업 필요)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="details">추가 요청 사항 (특수 짐, 보관 필요 여부 등)</label>
+                <textarea id="details" name="details" rows="4" placeholder="운반할 큰 가구, 가전 목록 및 특이 사항을 상세히 알려주시면 정확한 견적이 가능합니다."></textarea>
+            </div>
+            
+            <button type="submit" class="cta-btn">정확한 용달이사 비용 무료 견적 요청하기</button>
+            <p style="text-align: center; font-size: 0.9em; color: var(--text-medium);">※ 개인정보는 견적 산출 외 다른 용도로 사용되지 않습니다.</p>
+        </form>
+
+        <p style="text-align: center; margin-top: 30px;">
+            혹은 **지금 바로 전화 주세요** <br>
+            📞 **대표 상담 번호:** <a href="tel:1666-XXXX" style="font-size: 1.5em; font-weight: 700; color: var(--accent-color); text-decoration: none;">1666-XXXX</a>
+        </p>
+
+    </section>
+
+    <hr>
+
+    <footer>
+        <p style="text-align: center; font-size: 0.85em; color: var(--text-medium);">
+            &copy; 2026 전국 용달이사 가격비교 센터. 이사비용 분석 및 견적 플랫폼. <br>
+            본 웹페이지의 모든 정보는 2026년 이사 시장 동향을 반영한 추정치이며, 실제 견적은 상담 후 확정됩니다.
+        </p>
+    </footer>
+
+</body>
+
+  
